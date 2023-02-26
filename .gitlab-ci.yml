@@ -1,0 +1,12 @@
+stages:
+  - test
+
+RunTests:
+  - image: python:latest
+  - stage: test
+  - before_script:
+    - pip install virtualenv
+    - virtualenv env
+    - source env/bin/activate
+  - script:
+    - python tests/test.py
