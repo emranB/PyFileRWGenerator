@@ -1,18 +1,20 @@
+import os
+
 class FileHandler:
     def __init__(self, inputFilePath, outputFilePath) -> None:
         self.inputFilePath = inputFilePath
         self.outputFilePath = outputFilePath
 
     def readAndWrite(self) -> None:
-        with open(self.inputFilePath, 'r') as input, open(self.outputFilePath, 'w') as output:
-            # Check in i/o file paths are valid
-            if not input: 
-                print('Invalid input at ', self.inputFilePath)
-                return False
-            if not output: 
-                print('Invalid output at ', self.outputFilePath)
-                return False
+        # Check in i/o file paths are valid
+        if not os.path.exists(self.inputFilePath): 
+            print('Invalid input at ', self.inputFilePath)
+            return False
+        if not os.path.exists(self.outputFilePath): 
+            print('Invalid output at ', self.outputFilePath)
+            return False
 
+        with open(self.inputFilePath, 'r') as input, open(self.outputFilePath, 'w') as output:
             # Read data and split data in to lines
             lines = input.read().split(',')
             lineCount = len(lines)
