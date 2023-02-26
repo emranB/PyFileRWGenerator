@@ -9,4 +9,4 @@ runtests:
     - virtualenv env
     - source env/bin/activate
   script:
-    - python tests/test.py
+    - python tests.py
