@@ -34,10 +34,10 @@ from modules.FileHandler import *
 
 def main(argc, argv):
     match argc:
-        case 2:
+        case 2: # missing input and output file paths
             print('Input file path detected: ', argv[1])
             print('Missing output file path param')
-        case 3:
+        case 3: # input and output file paths OK
             try:
                 fh = FileHandler(argv[1], argv[2])
                 fh.readAndWrite()
